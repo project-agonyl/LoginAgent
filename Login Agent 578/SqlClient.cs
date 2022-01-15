@@ -88,7 +88,7 @@ namespace Login_Agent_578
         internal bool isExistsTable(string table)
         {
             bool isExists = false;
-            string query = string.Format("select count(*) from information_schema.tables where table_name = '{0}'", table);
+            string query = string.Format("select count(*) from INFORMATION_SCHEMA.TABLES where TABLE_NAME = '{0}'", table);
 
             using (SqlConnection conn = new SqlConnection(g_Config.SqlConn))
             using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -108,7 +108,7 @@ namespace Login_Agent_578
         internal bool isExistsColumn(string column, string table)
         {
             bool isExists = false;
-            string query = string.Format("select count(*) from information_schema.columns where column_name = '{0}' and table_name = '{1}'", column, table);
+            string query = string.Format("select count(*) from INFORMATION_SCHEMA.COLUMNS where COLUMN_NAME = '{0}' and TABLE_NAME = '{1}'", column, table);
 
             using (SqlConnection conn = new SqlConnection(g_Config.SqlConn))
             using (SqlCommand cmd = new SqlCommand(query, conn))
